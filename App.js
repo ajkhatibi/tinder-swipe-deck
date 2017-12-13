@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Card, Button } from 'react-native-elements';
+import { Card, Button, Text } from 'react-native-elements';
 import Deck from './src/Deck';
 
 const DATA = [
@@ -55,13 +55,22 @@ export default class App extends React.Component {
       </Card>
     );
   }
+
+  renderNoMoreCards() {
+    return (
+      <View style={{ flex: 1 }}>
+      <Text style={{ justifyContent: 'center', textAlign: 'center', textAlignVertical: 'center' }}>No More Cards!</Text>
+      </View>
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Deck
           data={DATA}
           renderCard={this.renderCard}
-          
+          renderNoMoreCards={this.renderNoMoreCards}
         />
       </View>
     );
